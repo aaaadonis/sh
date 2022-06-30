@@ -84,7 +84,8 @@ img {
     width: 25vw;
     font-weight: bolder;
   }
-  button{
-    padding: 1.5vh 2.5vw;
+  button {
+    padding: 1vh 3vw;
+    border-radius: 16px;
   }
 }
