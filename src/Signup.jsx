@@ -38,7 +38,8 @@ const Signup = () => {
           // let ref1 = Firebase.database().ref().child("users").push();
           // ref1.set(values);
           let contactsCollRef = collection(db, "contacts");
-          let newContactDoc = await addDoc(contactsCollRef, {          email: values.email,
+          let newContactDoc = await addDoc(contactsCollRef, 
+          {email: values.email,
           firstName: values.firstName,
           topSize: values.topSize,
           birthday: values.birthday,
