@@ -5,16 +5,7 @@ import "./App.css";
 import { db } from "./firebase";
 
 const Signup = () => {
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [size, setSize] = useState("");
-  // const [birthday, setBirthday] = useState("");
-  // const [address, setAddress] = useState("");
-  // const [apt, setApt] = useState("");
-  // const [city, setCity] = useState("");
-  // const [state, setState] = useState("");
-  // const [zip, setZip] = useState("");
-  // const [phone, setPhone] = useState("");
+
 
   const formik = useFormik({
     initialValues: {
@@ -35,8 +26,7 @@ const Signup = () => {
       topSize: Yup.string().max(12, "Must be 12 characters or less."),
     }),
     onSubmit: (values) => {
-          // let ref1 = Firebase.database().ref().child("users").push();
-          // ref1.set(values);
+
           let contactsCollRef = collection(db, "contacts");
           let newContactDoc = await addDoc(contactsCollRef, 
           {email: values.email,
