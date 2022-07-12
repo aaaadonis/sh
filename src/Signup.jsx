@@ -3,6 +3,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import "./App.css";
 import { db } from "./firebase";
+import { addDoc, collection } from "firebase/firestore";
+
 
 const Signup = () => {
 
@@ -25,20 +27,20 @@ const Signup = () => {
       firstName: Yup.string().required("Required"),
       topSize: Yup.string().max(12, "Must be 12 characters or less."),
     }),
-    onSubmit: (values) => {
-
-          let contactsCollRef = collection(db, "contacts");
-          let newContactDoc = await addDoc(contactsCollRef, 
-          {email: values.email,
-          firstName: values.firstName,
-          topSize: values.topSize,
-          birthday: values.birthday,
-          address: values.address,
-          apt: values.apt,
-          city: values.city,
-          state: values.state,
-          zip: values.zip,
-          phone: values.phone,})
+    onSubmit: async (values) => {
+      let contactsCollRef = collection(db, "contacts");
+      let newContactDoc = await addDoc(contactsCollRef, {
+        email: values.email,
+        firstName: values.firstName,
+        topSize: values.topSize,
+        birthday: values.birthday,
+        address: values.address,
+        apt: values.apt,
+        city: values.city,
+        state: values.state,
+        zip: values.zip,
+        phone: values.phone,
+      })
         .then(() => {
           alert("Submission Successful");
         })

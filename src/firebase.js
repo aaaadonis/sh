@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
-import firebase from "firebase/app";
-import "firebase/firestore";
+import firebase from "firebase/compat/app";
+import  {getFirestore} from "firebase/firestore";
 
 const firebaseApp = firebase.initializeApp({
     apiKey: "AIzaSyDCLDu5J2iZNCLWCTeJqHYJwiQb3_UYSZQ",
