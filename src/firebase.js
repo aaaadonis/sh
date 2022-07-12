@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import {getFirestore} from "firebase/firestore";
 import {initializeApp} from 'firebase/app';
+import { getAuth, signInAnonymously } from "firebase/auth";
 
 
 
@@ -13,6 +14,18 @@ const firebaseApp = {
     appId: "1:297025027097:web:a52afb9f26ea55d1bffe88",
     measurementId: "G-HNZS6292HE",
 }
+
+
+const auth = getAuth();
+signInAnonymously(auth)
+  .then(() => {
+    // Signed in..
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ...
+  });
 
 const myApp = initializeApp(firebaseApp);
 

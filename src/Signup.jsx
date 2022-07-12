@@ -29,24 +29,24 @@ const Signup = () => {
     }),
     onSubmit: async (values) => {
       let contactsCollRef = collection(db, "contacts");
-      let newContactDoc = await addDoc(contactsCollRef, {
-        email: values.email,
-        firstName: values.firstName,
-        topSize: values.topSize,
-        birthday: values.birthday,
-        address: values.address,
-        apt: values.apt,
-        city: values.city,
-        state: values.state,
-        zip: values.zip,
-        phone: values.phone,
-      })
-        .then(() => {
-          alert("Submission Successful");
-        })
-        .catch((error) => {
-          console.log(error.message);
+      try {
+        let newContactDoc = await addDoc(contactsCollRef, {
+          email: values.email,
+          firstName: values.firstName,
+          topSize: values.topSize,
+          birthday: values.birthday,
+          address: values.address,
+          apt: values.apt,
+          city: values.city,
+          state: values.state,
+          zip: values.zip,
+          phone: values.phone,
         });
+        alert("Submission Successful");
+      } catch (ex) {
+        console.error(ex.message);
+        console.error(ex);
+      }
     },
   });
 
