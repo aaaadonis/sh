@@ -3,23 +3,12 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import "./App.css";
 import { myFS, myAuth } from "./firebase";
-import { getAuth, signInAnonymously } from "firebase/auth";
-
 import { addDoc, collection } from "firebase/firestore";
 
 
 const Signup = () => {
 
-  const auth = getAuth(myFS);
-  signInAnonymously(myAuth)
-    .then(() => {
-      // Signed in..
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ...
-    });
+  
 
   const formik = useFormik({
     initialValues: {
