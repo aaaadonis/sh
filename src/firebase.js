@@ -19,7 +19,7 @@ const firebaseApp = {
 
 
 const myApp = initializeApp(firebaseApp);
-const auth = getAuth();
+const auth = getAuth(myApp);
 signInAnonymously(auth)
   .then(() => {
     // Signed in..
