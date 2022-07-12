@@ -16,6 +16,9 @@ const firebaseApp = {
 }
 
 
+
+
+const myApp = initializeApp(firebaseApp);
 const auth = getAuth();
 signInAnonymously(auth)
   .then(() => {
@@ -26,9 +29,6 @@ signInAnonymously(auth)
     const errorMessage = error.message;
     // ...
   });
-
-const myApp = initializeApp(firebaseApp);
-
 const db = getFirestore(myApp);
 
 export { db };
