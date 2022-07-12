@@ -2,12 +2,22 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "./App.css";
-import { db } from "./firebase";
+import { myFS, myAuth } from "./firebase";
 import { addDoc, collection } from "firebase/firestore";
 
 
 const Signup = () => {
 
+  // const auth = getAuth(myFS);
+  // signInAnonymously(auth)
+  //   .then(() => {
+  //     // Signed in..
+  //   })
+  //   .catch((error) => {
+  //     const errorCode = error.code;
+  //     const errorMessage = error.message;
+  //     // ...
+  //   });
 
   const formik = useFormik({
     initialValues: {
@@ -28,7 +38,7 @@ const Signup = () => {
       topSize: Yup.string().max(12, "Must be 12 characters or less."),
     }),
     onSubmit: async (values) => {
-      let contactsCollRef = collection(db, "contacts");
+      let contactsCollRef = collection(myFS, "contacts");
       try {
         let newContactDoc = await addDoc(contactsCollRef, {
           email: values.email,
