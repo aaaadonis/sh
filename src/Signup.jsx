@@ -11,7 +11,7 @@ import { addDoc, collection } from "firebase/firestore";
 const Signup = () => {
 
   const auth = getAuth(myFS);
-  signInAnonymously(auth)
+  signInAnonymously(myAuth)
     .then(() => {
       // Signed in..
     })
