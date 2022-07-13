@@ -40,7 +40,7 @@ const Signup = () => {
       topSize: Yup.string().max(12, "Must be 12 characters or less."),
     }),
     onSubmit: async (values) => {
-      let contactsCollRef = collection(myFS, "contacts");
+      let contactsCollRef = await collection(myFS, "contacts");
       try {
         let newContactDoc = await addDoc(contactsCollRef, {
           email: values.email,
