@@ -4,13 +4,13 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDCLDu5J2iZNCLWCTeJqHYJwiQb3_UYSZQ",
-  authDomain: "shit-5db73.firebaseapp.com",
-  projectId: "shit-5db73",
-  storageBucket: "shit-5db73.appspot.com",
-  messagingSenderId: "297025027097",
-  appId: "1:297025027097:web:a52afb9f26ea55d1bffe88",
-  measurementId: "G-HNZS6292HE",
+  apiKey: "AIzaSyCccZfUm92iE4jPUXUIv3Q4aH19rrvLAxw",
+  authDomain: "shideaprogram.firebaseapp.com",
+  projectId: "shideaprogram",
+  storageBucket: "shideaprogram.appspot.com",
+  messagingSenderId: "915926589981",
+  appId: "1:915926589981:web:b7470d8328ee272cbf5cf4",
+  measurementId: "G-Y9BKG84GC5",
 };
 
 const myApp = initializeApp(firebaseConfig);
