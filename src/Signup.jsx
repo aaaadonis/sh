@@ -10,6 +10,12 @@ import { addDoc, collection } from "firebase/firestore";
 
 const Signup = () => {
 
+  const [compl, setCompl] = useState(false);
+
+  const changCompl = () => {
+    setCompl(true);
+  }
+
   // const auth = getAuth(myFS);
   // signInAnonymously(myAuth)
   //   .then(() => {
@@ -55,6 +61,7 @@ const Signup = () => {
           phone: values.phone,
         });
         alert("Submission Successful");
+        changCompl();
       } catch (ex) {
         console.error(ex.message);
         console.error(ex);
@@ -63,130 +70,136 @@ const Signup = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <div className="news">
-        <div className="inpu">
-          <p>full name: </p>
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.firstName}
-          />
-        </div>
-        {formik.touched.email && formik.errors.email ? (
-          <p>{formik.errors.email}</p>
-        ) : null}
-        <div className="inpu">
-          <p>birthday: </p>
-          <input
-            type="date"
-            id="birthday"
-            name="birthday"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.birthday}
-          />
-        </div>
-        <div className="inpu">
-          <p>top size: </p>
-          <input
-            type="text"
-            id="topSize"
-            name="topSize"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.topSize}
-          />
-        </div>
-        {formik.touched.topSize && formik.errors.topSize ? (
-          <p>{formik.errors.topSize}</p>
-        ) : null}
-        <div className="inpu">
-          <p>address: </p>
-          <input
-            type="text"
-            id="address"
-            name="address"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.address}
-          />
-        </div>
-        <div className="inpu">
-          <p>apt/suite: </p>
-          <input
-            type="text"
-            id="apt"
-            name="apt"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.apt}
-          />
-        </div>
-        <div className="inpu">
-          <p>city: </p>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.city}
-          />
-        </div>
-        <div className="inpu">
-          <p>state: </p>
-          <input
-            type="text"
-            id="state"
-            name="state"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.state}
-          />
-        </div>
-        <div className="inpu">
-          <p>zip code: </p>
-          <input
-            type="text"
-            id="zip"
-            name="zip"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.zip}
-          />
-        </div>
-        <div className="inpu">
-          <p>email: </p>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.email}
-          />
-        </div>
-        {formik.touched.email && formik.errors.email ? (
-          <p>{formik.errors.email}</p>
-        ) : null}
-        <div className="inpu">
-          <p>phone: </p>
-          <input
-            type="text"
-            id="phone"
-            name="phone"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.phone}
-          />
-        </div>
+    <div>
+      <div>
+        <p>
+        </p>
       </div>
-      <button type="submit">click to submit</button>
-    </form>
+      <form onSubmit={formik.handleSubmit} className={compl ? "off" : ""}>
+        <div className="news">
+          <div className="inpu">
+            <p>full name: </p>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.firstName}
+            />
+          </div>
+          {formik.touched.email && formik.errors.email ? (
+            <p>{formik.errors.email}</p>
+          ) : null}
+          <div className="inpu">
+            <p>birthday: </p>
+            <input
+              type="date"
+              id="birthday"
+              name="birthday"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.birthday}
+            />
+          </div>
+          <div className="inpu">
+            <p>top size: </p>
+            <input
+              type="text"
+              id="topSize"
+              name="topSize"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.topSize}
+            />
+          </div>
+          {formik.touched.topSize && formik.errors.topSize ? (
+            <p>{formik.errors.topSize}</p>
+          ) : null}
+          <div className="inpu">
+            <p>address: </p>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.address}
+            />
+          </div>
+          <div className="inpu">
+            <p>apt/suite: </p>
+            <input
+              type="text"
+              id="apt"
+              name="apt"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.apt}
+            />
+          </div>
+          <div className="inpu">
+            <p>city: </p>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.city}
+            />
+          </div>
+          <div className="inpu">
+            <p>state: </p>
+            <input
+              type="text"
+              id="state"
+              name="state"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.state}
+            />
+          </div>
+          <div className="inpu">
+            <p>zip code: </p>
+            <input
+              type="text"
+              id="zip"
+              name="zip"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.zip}
+            />
+          </div>
+          <div className="inpu">
+            <p>email: </p>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+            />
+          </div>
+          {formik.touched.email && formik.errors.email ? (
+            <p>{formik.errors.email}</p>
+          ) : null}
+          <div className="inpu">
+            <p>phone: </p>
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.phone}
+            />
+          </div>
+        </div>
+        <button type="submit">click to submit</button>
+      </form>
+    </div>
   );
 };
 

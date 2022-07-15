@@ -89,3 +89,12 @@ img {
     border-radius: 16px;
   }
 }
+
+.success{
+  background-color: #fff;
+  color: #0072ce;
+}
+
+.off{
+  display: none;
+}
